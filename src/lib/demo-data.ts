@@ -1,0 +1,100 @@
+import type { Project } from '@/types'
+
+export const DEMO_PROJECTS: Partial<Project>[] = [
+  {
+    _id: '1',
+    title: 'Nike T1',
+    tagline: 'Donde el legado competitivo se convierte en objeto de culto',
+    description:
+      'Reinterpretación de la silueta clásica del Nike Air Max 1 a través del lente del equipo coreano de esports T1, una de las organizaciones más emblemáticas en la historia de League of Legends. La propuesta celebra la excelencia competitiva, la historia y el estilo icónico del equipo, integrando elementos visuales clave que conectan con su identidad.',
+    category: 'consumer',
+    status: 'concept',
+    year: 2025,
+    client: 'Proyecto Conceptual',
+    role: 'Diseñador Industrial & CMF',
+    slug: { _type: 'slug', current: 'nike-t1' },
+    featured: true,
+    tags: ['Footwear', 'Esports', 'CMF', 'Concepto', 'Nike', 'T1'],
+    materials: [
+      { name: 'Cuero sintético', description: 'Cuerpo principal — rojo vibrante T1', color: '#cc2222' },
+      { name: 'Suede gris', description: 'Panel lateral y puntera', color: '#888888' },
+      { name: 'Suela EVA', description: 'Unidad Air Max en blanco', color: '#f0f0f0' },
+      { name: 'Agujetas de algodón', description: 'Acento dorado — trofeos y campeonatos', color: '#b8942a' },
+    ],
+    technologies: [
+      { name: 'Blender', category: 'software' },
+      { name: 'Keyshot', category: 'software' },
+      { name: 'Adobe Illustrator', category: 'software' },
+    ],
+    timeline: [
+      { date: 'Ene 2025', title: 'Research & Moodboard', description: 'Investigación de la identidad visual de T1, historia competitiva y colores institucionales.', milestone: false },
+      { date: 'Feb 2025', title: 'Bocetos y propuesta CMF', description: 'Definición de paleta de color: rojo, blanco, negro y dorado. Adaptación de zonas del Air Max 1.', milestone: true },
+      { date: 'Mar 2025', title: 'Modelado 3D', description: 'Construcción del modelo basado en la silueta del Nike Air Max 1 en Blender.', milestone: false },
+      { date: 'Abr 2025', title: 'Render final', description: 'Renders fotorrealistas en Keyshot con iluminación de estudio y ambiente dramático.', milestone: true },
+    ],
+  },
+  {
+    _id: '2',
+    title: 'Dice Tower',
+    tagline: 'Un objeto funcional nacido de los universos medievales de rol',
+    description:
+      'Torre de dados para sesiones de Dungeons & Dragons inspirada en la estética clásica de los juegos de rol de mesa y universos medievales. Concebida como un elemento decorativo y funcional: el jugador lanza su Dado D20 desde la parte superior y este cae hasta la entrada principal, mostrando el número en su cara superior. Detalle escultórico de dragón en relieve integrado en la fachada.',
+    category: 'experimental',
+    status: 'prototype',
+    year: 2025,
+    client: 'Proyecto Personal',
+    role: 'Diseñador Industrial & Escultor 3D',
+    slug: { _type: 'slug', current: 'dice-tower' },
+    featured: true,
+    tags: ['Art Toy', 'D&D', 'Impresión 3D', 'Escultura', 'Gaming', 'Funcional'],
+    materials: [
+      { name: 'PLA / PETG', description: 'Material principal para impresión 3D FDM', color: '#d4c5a0' },
+      { name: 'Resina fotopolimérica', description: 'Detalles finos del dragón — SLA', color: '#c8b89a' },
+    ],
+    technologies: [
+      { name: 'Blender', category: 'software' },
+      { name: 'ZBrush', category: 'software' },
+      { name: 'Keyshot', category: 'software' },
+      { name: 'Impresión FDM', category: 'manufacturing' },
+      { name: 'Impresión SLA', category: 'manufacturing' },
+    ],
+    timeline: [
+      { date: 'Feb 2025', title: 'Concepto y función', description: 'Definición de mecánica interna: rampa en espiral para guiar el dado de forma aleatoria.', milestone: true },
+      { date: 'Mar 2025', title: 'Escultura digital', description: 'Modelado de la torre y escultura del dragón en relieve con ZBrush.', milestone: false },
+      { date: 'Abr 2025', title: 'Optimización para impresión', description: 'Adaptación del modelo para impresión FDM sin soportes en piezas ensamblables.', milestone: true },
+      { date: 'May 2025', title: 'Render y presentación', description: 'Renders fotorrealistas en ambientes de desierto y estudio.', milestone: true },
+    ],
+  },
+  {
+    _id: '3',
+    title: 'Game Over',
+    tagline: 'La Pietà reinterpretada a través de los videojuegos',
+    description:
+      'Reinterpretación escultórica inspirada en la icónica composición de La Pietà de Miguel Ángel, trasladada al universo de los videojuegos. La escena representa a Peach sosteniendo a Mario en una postura que evoca la fragilidad, la pérdida y el simbolismo del "Game Over". Tributo a la obra homónima de 2009 del artista Kordian Lewandowski, reinterpretada en un modelo optimizado para impresión 3D.',
+    category: 'experimental',
+    status: 'prototype',
+    year: 2025,
+    client: 'Tribute / Proyecto Personal',
+    role: 'Escultor 3D & Artista Digital',
+    slug: { _type: 'slug', current: 'game-over' },
+    featured: true,
+    tags: ['Escultura', 'Videojuegos', 'Tribute', 'Impresión 3D', 'Arte Conceptual', 'Nintendo'],
+    awards: ['Tributo a Kordian Lewandowski — Game Over (2009)'],
+    materials: [
+      { name: 'Resina fotopolimérica', description: 'Acabado mármol — impresión SLA de alta resolución', color: '#e8e0d4' },
+      { name: 'PLA color neutro', description: 'Variante FDM para accesibilidad', color: '#d4cfc8' },
+    ],
+    technologies: [
+      { name: 'ZBrush', category: 'software' },
+      { name: 'Blender', category: 'software' },
+      { name: 'Keyshot', category: 'software' },
+      { name: 'Impresión SLA', category: 'manufacturing' },
+    ],
+    timeline: [
+      { date: 'Mar 2025', title: 'Investigación conceptual', description: 'Análisis de la obra original de Lewandowski y de la composición clásica de La Pietà.', milestone: false },
+      { date: 'Abr 2025', title: 'Escultura digital en ZBrush', description: 'Modelado de alta resolución de los personajes con textura de piedra/arcilla.', milestone: true },
+      { date: 'May 2025', title: 'Optimización para impresión 3D', description: 'Reducción de polígonos, separación en piezas ensamblables y generación de soportes.', milestone: false },
+      { date: 'May 2025', title: 'Renders finales', description: 'Iluminación dramática en blanco y negro para evocar la solemnidad escultórica clásica.', milestone: true },
+    ],
+  },
+]
