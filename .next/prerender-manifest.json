@@ -1,1 +1,11 @@
-{"version":4,"routes":{"/projects/nike-t1":{},"/projects/dice-tower":{},"/projects/game-over":{}},"dynamicRoutes":{"/projects/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":null,"fallbackRevalidate":false,"fallbackSourceRoute":"/projects/[slug]","routeRegex":"^\\/projects\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[],"preview":{"previewModeId":"ebfa8c5df396b470283c4ed1626f460f","previewModeSigningKey":"a767fc1f51fe705d87b81799a479f5ec9ef7808c3c98e7ce0d570ae0a83991f7","previewModeEncryptionKey":"dacbb170f839eae3bb7b4a1cd71ef32ec28e4d855a74bc5d7a464d5511153700"}}
+{
+  "version": 4,
+  "routes": {},
+  "dynamicRoutes": {},
+  "notFoundRoutes": [],
+  "preview": {
+    "previewModeId": "1d6b6ed19c9dd612ced3ae9a13300456",
+    "previewModeSigningKey": "b83ac2a1dcac775bc22fc336aff919417b101362c4dacef504b3d00ff17230ca",
+    "previewModeEncryptionKey": "55e9496668136821f06e464693ac0a09aac8ebd93b66c16f96d491a298086218"
+  }
+}

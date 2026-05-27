@@ -1,6 +1,5 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
-import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './schemas'
 import { SANITY_CONFIG } from '../src/config'
 
@@ -20,7 +19,6 @@ export default defineConfig({
             S.listItem().title('About Page').schemaType('about').child(S.document().schemaType('about').documentId('about')),
           ]),
     }),
-    visionTool(),
   ],
   schema: { types: schemaTypes },
 })
