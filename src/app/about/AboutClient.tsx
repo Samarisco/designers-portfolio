@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 import { Reveal, LabelChip, Divider } from '@/components/ui'
 import { Footer } from '@/components/sections/ContactCTASection'
 
@@ -64,6 +65,10 @@ const DISCIPLINES = [
 ]
 
 export function AboutPageClient() {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => { setMounted(true) }, [])
+  if (!mounted) return <div className="min-h-screen bg-obsidian" />
+
   return (
     <>
       <main className="min-h-screen">

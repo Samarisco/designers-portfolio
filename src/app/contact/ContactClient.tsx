@@ -16,6 +16,7 @@ const PROJECT_TYPES = [
 ]
 
 export function ContactClient() {
+  const [mounted, setMounted] = useState(false)
   const [formState, setFormState] = useState({
     name: '',
     email: '',
@@ -25,6 +26,9 @@ export function ContactClient() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [activeType, setActiveType] = useState<string | null>(null)
+
+  useEffect(() => { setMounted(true) }, [])
+  if (!mounted) return <div className="min-h-screen bg-obsidian" />
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

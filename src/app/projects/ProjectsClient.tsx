@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import type { ProjectCategory } from '@/types'
@@ -17,12 +17,34 @@ const CATEGORIES: { value: ProjectCategory | 'all'; label: string }[] = [
 ]
 
 export function ProjectsClientPage() {
+  const [mounted, setMounted] = useState(false)
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'all'>('all')
+
+  // Garantiza que el contenido se renderiza tras la navegación client-side
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const filtered = useMemo(() => {
     if (activeCategory === 'all') return DEMO_PROJECTS
     return DEMO_PROJECTS.filter((p) => p.category === activeCategory)
   }, [activeCategory])
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen pt-40 flex items-center justify-center">
+        <div className="flex flex-col items-center gap-4">
+          <div className="relative w-10 h-10">
+            <div className="absolute inset-0 border border-pulse/30 rounded-full animate-ping" />
+            <div className="absolute inset-2 border border-pulse/60 rounded-full animate-spin" style={{ animationDuration: '1.5s' }} />
+          </div>
+          <span className="font-mono text-[10px] text-zinc-600 tracking-widest uppercase">
+            Cargando proyectos
+          </span>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <>
@@ -67,7 +89,10 @@ export function ProjectsClientPage() {
           </Reveal>
 
           {/* Grid */}
-          <motion.div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5" layout>
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
+            layout
+          >
             <AnimatePresence mode="popLayout">
               {filtered.map((project, i) => (
                 <motion.div
@@ -136,26 +161,25 @@ export function ProjectsClientPage() {
 // ============================================================
 // PLACEHOLDER VISUAL
 // ============================================================
-const PLACEHOLDER_COLORS = ['#1a1a1a', '#111111', '#0f0f0f', '#141414']
+const PLACEHOLDER_COLORS = ['#1a1a1a', '#111111', '#0f0f0f']
 
 function ProjectPlaceholder({ index }: { index: number }) {
   const bg = PLACEHOLDER_COLORS[index % PLACEHOLDER_COLORS.length] ?? '#111'
   const svgs = [
-    // Nike T1 — zapatilla abstracta
+    // Nike T1
     <svg key="0" viewBox="0 0 120 80" className="w-24 h-16 opacity-20">
       <path d="M10 55 Q30 20 70 18 Q100 16 110 55" fill="none" stroke="#e8e8e8" strokeWidth="0.8" />
       <ellipse cx="60" cy="60" rx="50" ry="12" fill="none" stroke="#ff4500" strokeWidth="0.5" />
       <path d="M45 30 L65 22 L70 30" fill="none" stroke="#e8e8e8" strokeWidth="0.5" />
     </svg>,
-    // Dice Tower — torre abstracta
+    // Dice Tower
     <svg key="1" viewBox="0 0 80 120" className="w-16 h-24 opacity-20">
       <rect x="25" y="20" width="30" height="80" rx="3" fill="none" stroke="#e8e8e8" strokeWidth="0.8" />
       <rect x="20" y="15" width="40" height="12" rx="2" fill="none" stroke="#e8e8e8" strokeWidth="0.5" />
       <rect x="30" y="35" width="8" height="12" rx="1" fill="none" stroke="#a8d8f0" strokeWidth="0.5" />
-      <rect x="42" y="35" width="8" height="12" rx="1" fill="none" stroke="#a8d8f0" strokeWidth="0.5" />
       <polygon points="40,85 48,95 40,105 32,95" fill="none" stroke="#ff4500" strokeWidth="0.5" />
     </svg>,
-    // Game Over — silueta pietà abstracta
+    // Game Over
     <svg key="2" viewBox="0 0 120 100" className="w-24 h-20 opacity-20">
       <ellipse cx="60" cy="45" rx="25" ry="35" fill="none" stroke="#e8e8e8" strokeWidth="0.8" />
       <path d="M35 65 Q60 80 85 65" fill="none" stroke="#e8e8e8" strokeWidth="0.5" />

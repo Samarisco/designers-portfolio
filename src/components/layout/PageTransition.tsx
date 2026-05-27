@@ -1,24 +1,29 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { type ReactNode } from 'react'
+import { motion } from 'framer-motion'
 
-export function PageTransition({ children }: { children: ReactNode }) {
+export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
+  const [displayChildren, setDisplayChildren] = useState(children)
+  const [transitionStage, setTransitionStage] = useState<'fadeIn' | 'fadeOut'>('fadeIn')
+
+  useEffect(() => {
+    setTransitionStage('fadeIn')
+    setDisplayChildren(children)
+  }, [pathname, children])
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        className="page-wrapper"
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -16 }}
-        transition={{ duration: 0.55, ease: [0.19, 1, 0.22, 1] }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <motion.div
+      key={pathname}
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: [0.19, 1, 0.22, 1] }}
+      className="min-h-screen"
+      onAnimationComplete={() => setTransitionStage('fadeIn')}
+    >
+      {displayChildren}
+    </motion.div>
   )
 }
