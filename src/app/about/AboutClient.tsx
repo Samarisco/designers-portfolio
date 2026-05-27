@@ -1,7 +1,7 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { motion } from 'framer-motion'
 import { Reveal, LabelChip, Divider } from '@/components/ui'
 import { Footer } from '@/components/sections/ContactCTASection'
 
