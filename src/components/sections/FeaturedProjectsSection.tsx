@@ -1,13 +1,11 @@
 'use client'
 
 import { useRef } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import type { Project } from '@/types'
 import { LabelChip, Reveal } from '@/components/ui'
-import { urlForImage } from '@/lib/sanity/client'
 import { DEMO_PROJECTS } from '@/lib/demo-data'
 
 export { DEMO_PROJECTS }
@@ -40,23 +38,12 @@ function ProjectCard({ project, index }: { project: Partial<Project>; index: num
           className="relative overflow-hidden"
           style={{ aspectRatio: isLarge ? '16/9' : '4/3' }}
         >
-          {project.coverImage ? (
-            <Image
-              src={urlForImage(project.coverImage).width(800).url()}
-              alt={project.coverImage.alt ?? project.title ?? ''}
-              fill
-              className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
-              sizes={isLarge ? '(max-width: 768px) 100vw, 66vw' : '(max-width: 768px) 100vw, 33vw'}
-            />
-          ) : (
-            /* Placeholder gradient */
-            <div
+          <div
               className="absolute inset-0 flex items-center justify-center"
               style={{ background: imageColors[index % imageColors.length] }}
             >
               <DemoModelPreview index={index} />
             </div>
-          )}
 
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent
